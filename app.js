@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var weathersRouter = require('./routes/weather');
+// var weathersRouter = require('./routes/weather');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin','https://master.d2iptq7huf4cap.amplifyapp.com');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -37,8 +37,8 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
-// app.use('/', indexRouter);
-app.use('/weather', weathersRouter);
+app.use('/', indexRouter);
+// app.use('/weather', weathersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
